@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pstms/src/models/Notification_v2.Model.dart';
 import 'package:pstms/src/repos/Notification.Repos.dart';
+import 'package:pstms/src/views/tATestComapny.page.dart';
 
 class NotificationPage extends StatefulWidget {
   @override
@@ -76,7 +77,7 @@ class NotificationPageState extends State<NotificationPage> {
                                       padding: EdgeInsets.all(20),
                                       child: Text('Đã nắm bắt tất cả thông báo',
                                         style: TextStyle(
-                                            fontSize: 20, color: Colors.white
+                                            fontSize: 20, color: Colors.white.withOpacity(0.6)
                                         ),
                                       ),
                                     ),
@@ -91,8 +92,6 @@ class NotificationPageState extends State<NotificationPage> {
                                     child: ListView.builder(
                                         itemBuilder: (context, index) {
                                           final noti = snapshot.data;
-                                          print('thông báo' +
-                                              snapshot.data.length);
                                           return Dismissible(
                                             key: Key(noti.toString()),
                                             onDismissed: (direction) {
@@ -132,10 +131,10 @@ class NotificationPageState extends State<NotificationPage> {
                                             ),
                                             child: GestureDetector(
                                               onTap: () {
-//                                          Navigator.push(
-//                                            context,
-//                                            MaterialPageRoute(builder: (context) => TATestCompanyDetailPage(id: noti[index].TATestDateID,title: "PHÂN CÔNG KIỂM TRA",)),
-//                                          );
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => TATestCompanyPage(id: noti[index].TATestDateID,title: "PHÂN CÔNG KIỂM TRA",)),
+                                          );
                                               },
                                               child: Card(
                                                 elevation: 8.0,

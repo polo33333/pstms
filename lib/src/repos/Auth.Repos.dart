@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:pstms/src/config/config.dart';
+import 'package:pstms/src/models/Employee.Model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepos {
@@ -38,7 +39,8 @@ class AuthRepos {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String _auth = prefs.getString('LOGIN')?? 'NO';
-
+    String token = prefs.getString(FCM_token)??'null';
+    print('token:  '+token);
     print('Authenticated:  '+_auth);
     if(_auth == 'YES')
       return true;
@@ -48,17 +50,26 @@ class AuthRepos {
 
   Future<bool> signOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove('LOGIN');
 
-    return true;
+    String token = prefs.getString(FCM_token)??'null';
 
+
+    final response =
+    await client.get(URL_SIGNOUT+ token);
+
+    if (response.statusCode == 200) {
+      prefs.remove('LOGIN');
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Future<bool> changePassword(String rePass, String pass) async {
 
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String token = prefs.getString(FCM_token);
+    String token = prefs.getString(FCM_token)??'null';
 
     final response = await client.post(
       URL_CHANGEPASSWORD,
@@ -82,22 +93,22 @@ class AuthRepos {
   }
 
 
-//  Future<Employee> getEmployeeInfo() async {
-//    SharedPreferences prefs = await SharedPreferences.getInstance();
-//    String token = prefs.getString(FCM_token);
-//    int id = prefs.getInt(EmployeeId);
-//
-//    final response =
-//    await client.get(URL_GETINFOEMPLOYEE+ token+'&&employeeId='+id.toString());
-//
-//    if (response.statusCode == 200) {
-//      return Employee.fromJson(json.decode(response.body));
-//    } else {
-//      // If that response was not OK, throw an error.
-//      throw Exception('Failed to load TestAssignment');
-//      //return null;
-//    }
-//  }
+  Future<Employee> getEmployeeInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String token = prefs.getString(FCM_token)??'null';
+
+    final response =
+    await client.get(URL_GETINFOEMPLOYEE+ token);
+
+    if (response.statusCode == 200) {
+      print(json.decode(response.body) );
+      return Employee.fromJson(json.decode(response.body));
+    } else {
+      // If that response was not OK, throw an error.
+      throw Exception('Failed to load TestAssignment');
+      //return null;
+    }
+  }
 
 
   Future<String> getToken() async {

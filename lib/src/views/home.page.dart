@@ -4,6 +4,10 @@ import 'package:page_transition/page_transition.dart';
 import 'package:pstms/src/views/notification,page.dart';
 import 'package:pstms/src/views/setting.page.dart';
 import 'package:pstms/src/views/splashScreen.page.dart';
+import 'package:pstms/src/views/tALatest.page.dart';
+import 'package:pstms/src/views/tAtHistory.page.dart';
+
+import 'account.page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -63,13 +67,13 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(3),
               children: <Widget>[
                 makeDashboardItem(
-                    "Phân công mới nhất", Icons.work, Colors.pink, SplashScreen()),
+                    "Phân công mới nhất", Icons.work, Colors.pink, TestAssignmentLatestPage()),
                 makeDashboardItem(
-                    "Lịch sử phân công", Icons.history, Colors.green, SplashScreen()),
+                    "Lịch sử phân công", Icons.history, Colors.green, TestAssignmentHistoryPage()),
                 makeDashboardItem(
                     "Thông báo", Icons.notifications_none, Colors.red, NotificationPage()),
                 makeDashboardItem(
-                    "Tài khoản", Icons.account_circle, Colors.deepPurple, SplashScreen()),
+                    "Tài khoản", Icons.account_circle, Colors.deepPurple, AccountPage()),
                 makeDashboardItem(
                     "Cài đặt", Icons.settings, Colors.blueGrey, SettingPage()),
                 makeDashboardItem(

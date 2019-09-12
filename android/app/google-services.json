@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "317235860794",
+    "firebase_url": "https://pstmsv2.firebaseio.com",
+    "project_id": "pstmsv2",
+    "storage_bucket": "pstmsv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317235860794:android:35f52788b8f241638f6c03",
+        "android_client_info": {
+          "package_name": "vn.tpsoft.pstms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317235860794-3jqoi4jjbjn7kq2pg41q67ic1gri2pe1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8Bjl6YlQMfcFTr0BBOO5QU6CdrZQLv40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317235860794-3jqoi4jjbjn7kq2pg41q67ic1gri2pe1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

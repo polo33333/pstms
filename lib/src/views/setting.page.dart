@@ -27,7 +27,7 @@ class _SettingState extends State<SettingPage> {
         backgroundColor: Color(0xFF2d3447),
         centerTitle:true,
         title: Text(
-          'Cài đặt',
+          'CÀI ĐẶT',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20.0,
