@@ -12,21 +12,44 @@ Future<List<TATestDates>> getTestDate_ByTestAssignmentID( int id) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String token = prefs.getString(FCM_token)??'null';
 
-  final response =
-  await http.get(URL_GETTESTDATE_BYTASSIGNMENTID+ id.toString()+"&&token="+token);
-  List<TATestDates> list = List();
-  if (response.statusCode == 200) {
-    // If server returns an OK response, parse the JSON.
+//  final response =
+//  await http.get(URL_GETTESTDATE_BYTASSIGNMENTID+ id.toString()+"&&token="+token);
+//  List<TATestDates> list = List();
+//  if (response.statusCode == 200) {
+//    // If server returns an OK response, parse the JSON.
+//
+//    list = (json.decode(response.body) as List)
+//        .map((data) => new TATestDates.fromJson(data))
+//        .toList();
+//    //print(list);
+//
+//    return list ;
+//  } else {
+//    // If that response was not OK, throw an error.
+//    throw Exception('Failed to load TestAssignment');
+//  }
 
-    list = (json.decode(response.body) as List)
-        .map((data) => new TATestDates.fromJson(data))
-        .toList();
-    //print(list);
 
-    return list ;
-  } else {
-    // If that response was not OK, throw an error.
-    throw Exception('Failed to load TestAssignment');
+  try{
+    final response =
+    await http.get(URL_GETTESTDATE_BYTASSIGNMENTID+ id.toString()+"&&token="+token);
+    List<TATestDates> list = List();
+    if (response.statusCode == 200) {
+
+      list = (json.decode(response.body) as List)
+          .map((data) => new TATestDates.fromJson(data))
+          .toList();
+      if(list.length>0)
+        return list ;
+      return throw Exception('Failed to load TestDate null value');
+    } else {
+      // If that response was not OK, throw an error.
+      throw Exception('Failed to load TestDate');
+      //return null;
+    }
+  }
+  catch(_){
+    throw Exception('Failed to load TestDate');
   }
 }
 

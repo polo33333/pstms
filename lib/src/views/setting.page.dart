@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:pstms/src/repos/Auth.Repos.dart';
+import 'package:pstms/src/views/AboutPage.dart';
+import 'package:pstms/src/views/account.page.dart';
+import 'package:pstms/src/views/changePassword.page.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -50,7 +54,8 @@ class _SettingState extends State<SettingPage> {
             Container(
               child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/account');
+                    Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: AccountPage()));
+                   // Navigator.pushNamed(context, '/account');
                   },
                   child: Card(
                     elevation: 8.0,
@@ -149,7 +154,8 @@ class _SettingState extends State<SettingPage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/about');
+                //Navigator.pushNamed(context, '/about');
+                Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: AboutPage()));
               },
               child: Card(
                 elevation: 8.0,
@@ -187,7 +193,7 @@ class _SettingState extends State<SettingPage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/changePassword');
+                Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: ChangePasswordPage()));
               },
               child: Card(
                 elevation: 8.0,

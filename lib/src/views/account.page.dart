@@ -12,23 +12,18 @@ class _AccountState extends State<AccountPage> {
   Future<Employee> _employee;
 
   void initState() {
+    GetEmployeeInfo();
     super.initState();
+  }
 
-    _auth.getEmployeeInfo().then((result) {
-      //print(result.EmployeeName);
-      if (result.EmployeeName == null) {
-        _auth.signOut();
-        Navigator.of(context).pushNamedAndRemoveUntil(
-            '/login', (Route<dynamic> route) => false);
-      }
-      else{
-        setState(() {
-          _employee = _auth.getEmployeeInfo();
-        });
-      }
+  Future<Null> GetEmployeeInfo() async {
+    await Future.delayed(Duration(seconds: 1));
+
+    setState(() {
+      _employee = _auth.getEmployeeInfo();
     });
 
-
+    return null;
   }
 
   @override
@@ -67,26 +62,21 @@ class _AccountState extends State<AccountPage> {
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return Container(
-                          margin: EdgeInsets.all(10.0),
-                          padding: EdgeInsets.all(10.0),
-                          alignment: Alignment.topCenter,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(64, 75, 96, .9)),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                          child: Center(
+                            child: Column(
                               children: <Widget>[
-                                Icon(
-                                  Icons.warning,
-                                  color: Colors.yellow,
+                                Icon(Icons.search,size: 80,color: Colors.white.withOpacity(0.6),),
+                                Container(
+                                  padding: EdgeInsets.all(20),
+                                  child: Text('Dữ liệu trống',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white.withOpacity(0.6)
+                                    ),
+                                  ),
                                 ),
-                                SizedBox(
-                                  width: 10.0,
-                                ),
-                                Text(
-                                  'Không tải được dữ liệu',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ]),
+                              ],
+                            ),
+                          ),
                         );
                       }
                       return snapshot.hasData

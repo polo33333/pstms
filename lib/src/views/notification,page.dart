@@ -72,13 +72,19 @@ class NotificationPageState extends State<NotificationPage> {
                               child: Center(
                                 child: Column(
                                   children: <Widget>[
-                                    Icon(Icons.search,size: 80,color: Colors.white.withOpacity(0.6),),
+                                    Icon(
+                                      Icons.search,
+                                      size: 80,
+                                      color: Colors.white.withOpacity(0.6),
+                                    ),
                                     Container(
                                       padding: EdgeInsets.all(20),
-                                      child: Text('Đã nắm bắt tất cả thông báo',
+                                      child: Text(
+                                        'Dữ liệu trống',
                                         style: TextStyle(
-                                            fontSize: 20, color: Colors.white.withOpacity(0.6)
-                                        ),
+                                            fontSize: 20,
+                                            color:
+                                                Colors.white.withOpacity(0.6)),
                                       ),
                                     ),
                                   ],
@@ -109,7 +115,10 @@ class NotificationPageState extends State<NotificationPage> {
                                                 content: Text(
                                                   'Đã xóa 1 thông báo',
                                                   style: TextStyle(
-                                                      color: Colors.white.withOpacity(0.6),fontWeight: FontWeight.w700),
+                                                      color: Colors.white
+                                                          .withOpacity(0.6),
+                                                      fontWeight:
+                                                          FontWeight.w700),
                                                 ),
                                                 duration: Duration(seconds: 1),
                                               ));
@@ -131,17 +140,24 @@ class NotificationPageState extends State<NotificationPage> {
                                             ),
                                             child: GestureDetector(
                                               onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => TATestCompanyPage(id: noti[index].TATestDateID,title: "PHÂN CÔNG KIỂM TRA",)),
-                                          );
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          TATestCompanyPage(
+                                                            id: noti[index]
+                                                                .TATestDateID,
+                                                            title:
+                                                                "PHÂN CÔNG KIỂM TRA",
+                                                          )),
+                                                );
                                               },
                                               child: Card(
                                                 elevation: 8.0,
-                                                margin:
-                                                    new EdgeInsets.symmetric(
-                                                        horizontal: 10.0,
-                                                        vertical: 6.0),
+//                                                margin:
+//                                                    new EdgeInsets.symmetric(
+//                                                        horizontal: 10.0,
+//                                                        vertical: 6.0),
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       color: Color.fromRGBO(
@@ -247,8 +263,8 @@ class NotificationList extends StatelessWidget {
               background: Container(
                 color: Colors.red,
                 child: Container(
-                    margin: EdgeInsets.only(left: 10.0, right: 10.0),
-                    padding: EdgeInsets.all(20.0),
+//                    margin: EdgeInsets.only(left: 10.0, right: 10.0),
+//                    padding: EdgeInsets.all(20.0),
                     alignment: Alignment.centerRight,
                     child: Icon(
                       Icons.delete,
@@ -258,8 +274,8 @@ class NotificationList extends StatelessWidget {
               ),
               child: Card(
                 elevation: 8.0,
-                margin:
-                    new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+//                margin:
+//                    new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                 child: Container(
                   decoration:
                       BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),

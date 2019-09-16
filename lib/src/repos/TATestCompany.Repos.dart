@@ -11,21 +11,43 @@ import 'package:pstms/src/models/TATestComapny.Model.dart';
 Future<List<TATestCompany>> getTestCompany_ByTestDateID( int id) async {
 
 
-  final response =
-  await http.get(URL_TESTCOMPANY_BYTESTDATEID+ id.toString());
-  List<TATestCompany> list = List();
-  if (response.statusCode == 200) {
-    // If server returns an OK response, parse the JSON.
+//  final response =
+//  await http.get(URL_TESTCOMPANY_BYTESTDATEID+ id.toString());
+//  List<TATestCompany> list = List();
+//  if (response.statusCode == 200) {
+//    // If server returns an OK response, parse the JSON.
+//
+//    list = (json.decode(response.body) as List)
+//        .map((data) => new TATestCompany.fromJson(data))
+//        .toList();
+//    //print(list);
+//
+//    return list ;
+//  } else {
+//    // If that response was not OK, throw an error.
+//    throw Exception('Failed to load TATestCompany');
+//  }
 
-    list = (json.decode(response.body) as List)
-        .map((data) => new TATestCompany.fromJson(data))
-        .toList();
-    //print(list);
+  try{
+    final response =
+    await http.get(URL_TESTCOMPANY_BYTESTDATEID+ id.toString());
+    List<TATestCompany> list = List();
+    if (response.statusCode == 200) {
 
-    return list ;
-  } else {
-    // If that response was not OK, throw an error.
-    throw Exception('Failed to load TATestCompany');
+      list = (json.decode(response.body) as List)
+          .map((data) => new TATestCompany.fromJson(data))
+          .toList();
+      if(list.length>0)
+        return list ;
+      return throw Exception('Failed to load TestCompany null value');
+    } else {
+      // If that response was not OK, throw an error.
+      throw Exception('Failed to load TestCompany');
+      //return null;
+    }
+  }
+  catch(_){
+    throw Exception('Failed to load TestCompany');
   }
 }
 

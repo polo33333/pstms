@@ -92,7 +92,7 @@ class _ColorLoaderState extends State<ColorLoader>
                     offset: Offset(0.0, 0.0),
                     child: Dot(
                       radius: radius,
-                      color: Colors.black12,
+                      color: Color(0xFF2d3447),
                     ),
                   ),
                   new Transform.translate(

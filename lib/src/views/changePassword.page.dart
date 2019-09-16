@@ -51,18 +51,17 @@ class _ChangePasswordState extends State<ChangePasswordPage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 80.0,),
             Container(
-              margin: EdgeInsets.all(20.0),
+              margin: EdgeInsets.all(10.0),
               child: Container(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(5.0),
                   border: Border.all(
-                    color: Colors.pink.withOpacity(.3),
+                    color: Colors.transparent.withOpacity(.3),
                     width: .2,
                   ),
                 ),
@@ -71,23 +70,30 @@ class _ChangePasswordState extends State<ChangePasswordPage> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           labelText: 'Mật khẩu hiện tại',
                           labelStyle: TextStyle(
-                              color: Colors.black
+                              color: Colors.white
                           ),
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintStyle: TextStyle(color: Colors.white),
                           prefixIcon: Container(
                             width: 50,
-                            child: Icon(Icons.vpn_key,color: Colors.black,),
+                            child: Icon(Icons.vpn_key,color: Colors.white,),
                           ),
                           border: OutlineInputBorder(
 
                               borderSide: BorderSide(
-                                color: Colors.black,
+                                color: Colors.white,
                                 width: 11,
                               ),
                               borderRadius: BorderRadius.all(Radius.circular(6))),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
                         ),
                         obscureText: true,
                         validator: (val) {
@@ -105,23 +111,32 @@ class _ChangePasswordState extends State<ChangePasswordPage> {
                       ),
                       TextFormField(
                         key: _newPassword,
+                        style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                             labelText: 'Mật khẩu mới',
                             labelStyle: TextStyle(
-                                color: Colors.black
+                                color: Colors.white
                             ),
-                            prefixStyle: TextStyle( color: Colors.black),
+                            prefixStyle: TextStyle( color: Colors.white),
                             prefixIcon: Container(
                               width: 50,
-                              child: Icon(Icons.vpn_key,color: Colors.black,),
+                              child: Icon(Icons.vpn_key,color: Colors.white,),
                             ),
+
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.black,
                                   width: 11,
                                 ),
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(6)))),
+                                BorderRadius.all(Radius.circular(6))),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                        ),
                         obscureText: true,
                         validator: (val) {
                           if (val.length == 0)
@@ -137,23 +152,31 @@ class _ChangePasswordState extends State<ChangePasswordPage> {
                         height: 10.0,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                             labelText: 'Nhắc lại mật khẩu mới',
                             labelStyle: TextStyle(
-                                color: Colors.black
+                                color: Colors.white
                             ),
-                            prefixStyle: TextStyle( color: Colors.black),
+                            prefixStyle: TextStyle( color: Colors.white),
                             prefixIcon: Container(
                               width: 50,
-                              child: Icon(Icons.vpn_key,color: Colors.black,),
+                              child: Icon(Icons.vpn_key,color: Colors.white,),
                             ),
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   width: 11,
                                 ),
                                 borderRadius:
-                                BorderRadius.all(Radius.circular(6)))),
+                                BorderRadius.all(Radius.circular(6))),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                        ),
                         obscureText: true,
                         validator: (val) {
                           var password = _newPassword.currentState.value;
@@ -175,7 +198,6 @@ class _ChangePasswordState extends State<ChangePasswordPage> {
                 ),
               ),
             ),
-
             Container(
               margin: new EdgeInsets.only(bottom: 16.0),
               padding: EdgeInsets.fromLTRB(20, 50, 20, 20),

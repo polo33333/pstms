@@ -68,7 +68,7 @@ class _TATestDateState extends State<TATestDatePage> {
           children: <Widget>[
             Card(
               elevation: 8.0,
-              margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+              //margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
               child: Container(
                 decoration:
                 BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
@@ -102,12 +102,39 @@ class _TATestDateState extends State<TATestDatePage> {
                 future: list,
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
-                    print(snapshot.error);
+                    return Container(
+                      height: MediaQuery.of(context).size.height/10*6,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                            child: Column(
+                              children: <Widget>[
+                                Icon(Icons.search,size: 80,color: Colors.white.withOpacity(0.6),),
+                                Container(
+                                  padding: EdgeInsets.all(20),
+                                  child: Text('Dữ liệu trống',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white.withOpacity(0.6)
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    );
                   }
                   return Container(
                     child: snapshot.hasData
                         ?  TATestDatetList(ta: snapshot.data,title: widget.title,)
-                        : Center(child: CircularProgressIndicator()),
+                        : Container(
+                      height: MediaQuery.of(context).size.height/10*6,
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
                   );
                 }
             ),
@@ -146,7 +173,7 @@ class TATestDatetList extends StatelessWidget {
               },
               child: Card(
                 elevation: 8.0,
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                //margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                 child: Container(
                   decoration:
                   BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),

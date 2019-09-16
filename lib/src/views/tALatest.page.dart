@@ -72,65 +72,65 @@ class _TestAssignmentLastState extends State<TestAssignmentLatestPage> {
                   return Container(
                     child: snapshot.hasData
                         ? Column(
-                      children: <Widget>[
-                        Card(
-                          elevation: 8.0,
-                          margin: new EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 6.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Color.fromRGBO(64, 75, 96, .9)),
-                            child: ListTile(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 10.0),
-                              leading: Container(
-                                padding: EdgeInsets.only(right: 12.0),
-                                decoration: new BoxDecoration(
-                                    border: new Border(
-                                        right: new BorderSide(
-                                            width: 1.0,
-                                            color: Colors.white24))),
-                                child: Icon(
-                                  Icons.work,
-                                  color: Colors.yellow,
-                                  size: 30.0,
+                            children: <Widget>[
+                              Card(
+                                elevation: 8.0,
+//                                margin: new EdgeInsets.symmetric(
+//                                    horizontal: 10.0, vertical: 6.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromRGBO(64, 75, 96, .9)),
+                                  child: ListTile(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10.0),
+                                    leading: Container(
+                                      padding: EdgeInsets.only(right: 12.0),
+                                      decoration: new BoxDecoration(
+                                          border: new Border(
+                                              right: new BorderSide(
+                                                  width: 1.0,
+                                                  color: Colors.white24))),
+                                      child: Icon(
+                                        Icons.work,
+                                        color: Colors.yellow,
+                                        size: 30.0,
+                                      ),
+                                    ),
+                                    title: Text(
+                                      "Phân công kiểm tra",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    subtitle: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 2,
+                                          child: Text(
+                                              'Ngày ban hành: ${snapshot.data.TestAssignmentDate}',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                        Text(" Loại: ${snapshot.data.isPeriod}",
+                                            style:
+                                                TextStyle(color: Colors.white))
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
-                              title: Text(
-                                "Phân công kiểm tra",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                        'Ngày ban hành: ${snapshot.data.TestAssignmentDate}',
-                                        style: TextStyle(
-                                            color: Colors.white)),
+                              Container(
+                                padding: EdgeInsets.all(10.0),
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "NGÀY KIỂM TRA",
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.5),
                                   ),
-                                  Text(" Loại: ${snapshot.data.isPeriod}",
-                                      style:
-                                      TextStyle(color: Colors.white))
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(10.0),
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "NGÀY KIỂM TRA",
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.5),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
+                            ],
+                          )
                         : Center(child: Text('')),
                   );
                 },
@@ -147,13 +147,18 @@ class _TestAssignmentLastState extends State<TestAssignmentLatestPage> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                Icon(Icons.work,size: 80,color: Colors.white.withOpacity(0.6),),
+                                Icon(
+                                  Icons.work,
+                                  size: 80,
+                                  color: Colors.white.withOpacity(0.6),
+                                ),
                                 Container(
                                   padding: EdgeInsets.all(20),
-                                  child: Text('Dữ liệu trống',
+                                  child: Text(
+                                    'Dữ liệu trống',
                                     style: TextStyle(
-                                        fontSize: 20, color: Colors.white.withOpacity(0.6)
-                                    ),
+                                        fontSize: 20,
+                                        color: Colors.white.withOpacity(0.6)),
                                   ),
                                 ),
                               ],
@@ -194,20 +199,19 @@ class TATestDatetList extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => TATestCompanyPage(
-                        id: TAtest[index].TATestDateID,
-                        title: "PHÂN CÔNG MỚI NHẤT",
-                      )),
+                            id: TAtest[index].TATestDateID,
+                            title: "PHÂN CÔNG MỚI NHẤT",
+                          )),
                 );
               },
               child: Card(
                 //elevation: 8.0,
-                margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+                //margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
                 child: Container(
                   decoration:
-                  BoxDecoration(
-                      color: Color.fromRGBO(64, 75, 96, .9)
-                    //color: Colors.white
-                  ),
+                      BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)
+                          //color: Colors.white
+                          ),
                   child: ListTile(
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),

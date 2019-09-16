@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pstms/src/views/notification,page.dart';
 import 'package:pstms/src/views/setting.page.dart';
-import 'package:pstms/src/views/splashScreen.page.dart';
 import 'package:pstms/src/views/tALatest.page.dart';
 import 'package:pstms/src/views/tAtHistory.page.dart';
 
@@ -22,9 +21,10 @@ class _HomePageState extends State<HomePage> {
     ));
     final double statusBarHeight = MediaQuery.of(context).padding.top;
     final double screenHeight = MediaQuery.of(context).size.height;
-    final double bottomHeight = 50;
+    //final double bottomHeight = 50;
     final double bodyHeight =
         screenHeight - statusBarHeight - 60;
+    final double widthScreen = MediaQuery.of(context).size.width;
 
     return Scaffold(
       //backgroundColor: Colors.white,
@@ -61,10 +61,11 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           height: bodyHeight,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 1.0),
             child: GridView.count(
               crossAxisCount: 2,
-              padding: EdgeInsets.all(3),
+              childAspectRatio: 3*widthScreen/(2*bodyHeight),
+              //padding: EdgeInsets.all(3),
               children: <Widget>[
                 makeDashboardItem(
                     "Phân công mới nhất", Icons.work, Colors.pink, TestAssignmentLatestPage()),
@@ -88,6 +89,9 @@ class _HomePageState extends State<HomePage> {
 
   Card makeDashboardItem(
       String title, IconData icon, Color colorBox, Widget router) {
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double bodyHeight =  screenHeight - statusBarHeight - 60;
     return Card(
         elevation: 1.0,
         margin: new EdgeInsets.all(8.0),
@@ -107,14 +111,14 @@ class _HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
-                SizedBox(height: 50.0),
+                SizedBox(height: (1/10)*bodyHeight ),
                 Center(
                     child: Icon(
                   icon,
                   size: 40.0,
                   color: Colors.white,
                 )),
-                SizedBox(height: 20.0),
+                SizedBox(height:(1/25)*bodyHeight),
                 new Center(
                   child: new Text(title,
                       style: new TextStyle(

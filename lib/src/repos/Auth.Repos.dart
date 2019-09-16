@@ -51,18 +51,19 @@ class AuthRepos {
   Future<bool> signOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    String token = prefs.getString(FCM_token)??'null';
+    //String token = prefs.getString(FCM_token)??'null';
 
-
-    final response =
-    await client.get(URL_SIGNOUT+ token);
-
-    if (response.statusCode == 200) {
-      prefs.remove('LOGIN');
-      return true;
-    } else {
-      return false;
-    }
+    prefs.remove('LOGIN');
+    return true;
+//    final response =
+//    await client.get(URL_SIGNOUT+ token);
+//
+//    if (response.statusCode == 200) {
+//      prefs.remove('LOGIN');
+//      return true;
+//    } else {
+//      return false;
+//    }
   }
 
   Future<bool> changePassword(String rePass, String pass) async {
@@ -99,9 +100,8 @@ class AuthRepos {
 
     final response =
     await client.get(URL_GETINFOEMPLOYEE+ token);
-
     if (response.statusCode == 200) {
-      print(json.decode(response.body) );
+      //throw Exception('Failed to load TestAssignment');
       return Employee.fromJson(json.decode(response.body));
     } else {
       // If that response was not OK, throw an error.
