@@ -39,7 +39,7 @@ class NotificationPageState extends State<NotificationPage> {
         backgroundColor: Color(0xFF2d3447),
         centerTitle: true,
         title: Text(
-          'Thông báo',
+          'THÔNG BÁO',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20.0,

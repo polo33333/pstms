@@ -1,6 +1,7 @@
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pstms/src/repos/SharedPreferences.Repos.dart';
 import 'package:pstms/src/views/AboutPage.dart';
 import 'package:pstms/src/views/account.page.dart';
@@ -75,6 +76,10 @@ class MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PSTMS',
@@ -94,6 +99,7 @@ class MyAppState extends State<MyApp> {
 
       },
       home: SplashScreen( router: null,),
+      //home: HomePage(),
     );
   }
 

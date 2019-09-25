@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 1.0),
             child: GridView.count(
               crossAxisCount: 2,
-              childAspectRatio: 3*widthScreen/(2*bodyHeight),
+              childAspectRatio: (3*widthScreen+10)/(2*bodyHeight),
               //padding: EdgeInsets.all(3),
               children: <Widget>[
                 makeDashboardItem(
